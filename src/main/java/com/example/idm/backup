@@ -1,0 +1,44 @@
+   /*
+        public CompletableFuture<Integer> downloadFileInBackground(URL url, FileDetails fileDetails) {
+            ExecutorService downloadExecutor = Executors.newFixedThreadPool(10); // Adjust the thread count as needed
+            ScheduledExecutorService progressExecutor = Executors.newSingleThreadScheduledExecutor();
+
+            CompletableFuture<Integer> result = new CompletableFuture<>();
+
+            try {
+                long fileSize = FileDownloaderService.getFileSize(url);
+                fileDetails.setSize(fileSize);
+
+                downloadExecutor.execute(() -> {
+                    try {
+                        int downloadResult = FileDownloaderService.downloadFile(url);
+                        result.complete(downloadResult);
+                    } catch (IOException e) {
+                        result.completeExceptionally(e);
+                    }
+                });
+
+                progressExecutor.scheduleWithFixedDelay(() -> {
+                    long downloadedSize = FileDownloaderService.getDownloadedSize(fileDetails.getName(), fileDetails.getExtension());
+                    double progress = (double) downloadedSize / fileSize * 100.0;
+
+                    if (progress >= 100.0) {
+                        progress = 100.0;
+                        fileDetails.setState("Completed");
+                        downloadExecutor.shutdown(); // Stop downloading after completion
+                        progressExecutor.shutdown(); // Stop updating progress after completion
+                    }
+
+                    fileDetails.setProgress((int) progress);
+                    Platform.runLater(() -> updateProgress(fileDetails)); // Update the progress in the TableView
+                }, 0, 50, TimeUnit.MILLISECONDS);
+            } catch (IOException e) {
+                e.printStackTrace();
+                fileDetails.setState("Failed");
+                updateProgress(fileDetails);
+                result.complete(-1); // Complete the future with a failure code
+            }
+
+            return result;
+        }
+    */

@@ -1,0 +1,20 @@
+@Test
+void saveFileByUrl() {}
+--> https://www.wikipedia.org/
+The error you're encountering, java.nio.file.AccessDeniedException, indicates that the application does not have permission to write or create a file in the specified directory (C:\Users\Houssem Eddine\Downloads\). This is a permissions issue where the application does not have the necessary rights to access or modify the directory.
+To resolve this issue, you can consider the following approaches:
+Run the Application as an Administrator:
+Run the application with elevated privileges (as an administrator) to gain permission to write files to the specified directory.
+Change the Output Directory:
+Use a directory where the application has permission to write files. For example, you can modify the code to write files to a directory where the application has write access, such as the user's home directory or another location where the application has write permissions.
+Here's an example of how you can modify the code to use a different directory:
+java code :
+// Specify a different directory (e.g., user's home directory)
+String userHome = System.getProperty("user.home");
+Path filePath = Paths.get(userHome, "Downloads", "filename.txt");
+Replace "filename.txt" with the desired file name and extension.
+Grant Permissions to the Directory:
+If it's appropriate for your scenario, you can adjust the permissions of the target directory to allow write access for the application or the user running the application.
+Use a Dialog to Choose the Directory:
+Instead of hardcoding the download directory, you can prompt the user to select a directory using a file chooser dialog.
+Remember, when handling file operations, it's essential to consider the user's permissions and ensure that the application has the necessary rights to perform file I/O operations in the specified directory.

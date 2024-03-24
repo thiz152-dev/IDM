@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="799.0" stylesheets="application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.idm.MainController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+               
+            </menus>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="450.0" prefWidth="833.0" VBox.vgrow="ALWAYS">
+            <children>
+                <VBox alignment="CENTER" layoutX="187.0" layoutY="10.0" spacing="20.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <children>
+                        <Label fx:id="welcomeText" prefHeight="22.0" prefWidth="331.0" text="Internet Download Manager" textAlignment="CENTER" textFill="#126b12">
+                            <font>
+                                <Font name="Bell MT" size="28.0" />
+                            </font>
+                        </Label>
+                        <Pane prefHeight="37.0" prefWidth="383.0" style="-fx-background-color: E6F0E6; -fx-background-radius: 28;">
+                            <children>
+                                <ImageView fx:id="addUrl" fitHeight="28.0" fitWidth="28.0" layoutX="14.0" layoutY="4.0" onMouseClicked="#addUrlClick">
+                                    <image>
+                                        <Image url="@icons/png/add-24.png" />
+                                    </image>
+                                </ImageView>
+                                <TextField fx:id="urlField" focusTraversable="false" layoutX="43.0" prefHeight="37.0" prefWidth="285.0" promptText="Insert URL" style="-fx-background-color: none; -fx-text-fill: #666666; -fx-prompt-text-fill: #666666;">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </TextField>
+                                <ImageView fx:id="downloadAllImage" fitHeight="24.0" fitWidth="24.0" layoutX="345.0" layoutY="6.0" onMouseClicked="#downloadAllClick" opacity="0.58">
+                                    <image>
+                                        <Image url="@icons/png/download-all.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane />
+                    </children>
+                </VBox>
+                <TableView fx:id="tableView" layoutX="24.0" layoutY="210.0" prefHeight="200.0" prefWidth="750.0" style="-fx-background-radius: 4;">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" prefWidth="146.0" text="Name" />
+                        <TableColumn fx:id="urlColumn" prefWidth="152.0" text="URL" />
+                        <TableColumn fx:id="sizeColumn" prefWidth="149.0" text="Size" />
+                        <TableColumn fx:id="stateColumn" prefWidth="149.0" text="State" />
+                        <TableColumn fx:id="progressColumn" prefWidth="153.0" text="Progress %" />
+                    </columns>
+                </TableView>
+            <HBox alignment="CENTER" layoutX="150.0" layoutY="140.0" minWidth="500.0" prefHeight="60.0" prefWidth="500.0" spacing="50.0">
+               <children>
+
+                    <ImageView fx:id="pauseButton" fitHeight="27.0" fitWidth="30.0" onMouseClicked="#pauseSelectedRows">
+                            <image>
+                                <Image url="@icons/png/pause.png" />
+                            </image>
+                        </ImageView>
+                        <!-- Repeat this structure for other buttons -->
+
+
+
+                
+                    <ImageView fx:id="resumeButton" fitHeight="27.0" fitWidth="30.0" onMouseClicked="#resumeSelectedRows">
+                        <image>
+                            <Image url="@icons/png/resume.png" />
+                        </image>
+                    </ImageView>
+
+                    <ImageView fx:id="deleteButton" fitHeight="27.0" fitWidth="30.0" onMouseClicked="#deleteSelectedRows">
+                        <image>
+                            <Image url="@icons/png/delete.png" />
+                        </image>
+                    </ImageView>
+
+                    <ImageView fx:id="pauseAllButton" fitHeight="30.0" fitWidth="31.0" onMouseClicked="#pauseAllRows">
+                        <image>
+                            <Image url="@icons/png/pause_all.png" />
+                        </image>
+                    </ImageView>
+
+                    <ImageView fx:id="resumeAllButton" fitHeight="30.0" fitWidth="31.0" onMouseClicked="#resumeAllRows">
+                        <image>
+                            <Image url="@icons/png/resume_all.png" />
+                        </image>
+                    </ImageView>
+
+                    <ImageView fx:id="deleteAllButton" fitHeight="30.0" fitWidth="31.0" onMouseClicked="#deleteAllRows">
+                        <image>
+                            <Image url="@icons/png/delete_all.png" />
+                        </image>
+                    </ImageView>
+
+</children>
+            </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+
+</VBox>
